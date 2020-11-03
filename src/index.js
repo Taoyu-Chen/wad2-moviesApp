@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import HomePage from "./pages/homePage";
 import MoviePage from './pages/movieDetailsPage'
 const sample = {
   adult: false,
@@ -63,6 +62,10 @@ const sample = {
   ],
   production_countries: [
     {
+      iso_3166_1: "CA",
+      name: "Canada"
+    },
+    {
       iso_3166_1: "US",
       name: "United States of America"
     }
@@ -83,8 +86,6 @@ const sample = {
   vote_average: 7,
   vote_count: 9692
 };
-
-const movies = [sample, sample, sample, sample, sample];
 
 const App = () => {
   return (
