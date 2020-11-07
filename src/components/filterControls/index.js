@@ -14,6 +14,7 @@ const FilterControls = props => {
       .then(apiGenres => {
         setGenres([genres[0], ...apiGenres]);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleChange = (e, type, value) => {
