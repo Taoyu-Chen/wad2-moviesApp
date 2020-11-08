@@ -49,4 +49,16 @@ describe("Navigation", function () {
     it("navigate to the full review page when a 'Full Review' link is clicked", function () {// TODO
     });
   });
+  describe("From the Favorites page", function () {
+    beforeEach(function () {
+      cy.visit("/");
+      cy.get(".card").eq(0).find("button").click();
+      cy.get("nav").find("li").eq(2).find("a").click();
+    });
+    it("should navigate to the movies detail page and change the browser URL", function () {
+      cy.get(".card").eq(0).find("img").click();
+      cy.url().should("include", "/movies/".concat(movies[0].id));
+      cy.get("h2").contains(movies[0].title);
+    });
+  });
 });
