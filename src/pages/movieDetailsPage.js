@@ -11,7 +11,6 @@ const MoviePage = props => {
   useEffect(() => {
     getMovie(id).then(movie => {
       setMovie(movie);
-      // eslint-disable-next-line
     });
   }, [id]);
   
