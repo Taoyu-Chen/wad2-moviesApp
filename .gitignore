@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-
+cypress.env.json
 # testing
 /coverage
 
