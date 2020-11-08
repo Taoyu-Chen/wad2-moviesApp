@@ -10,7 +10,9 @@ export default ({ movie }) => {
     getMovieReviews(movie.id).then(reviews => {
       setReviews(reviews);
     });
+     // eslint-disable-next-line
   }, []);
+  
   return (
     <table className="table table-striped table-bordered table-hover">
       <thead>
