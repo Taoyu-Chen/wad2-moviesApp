@@ -61,4 +61,17 @@ describe("Navigation", function () {
       cy.get("h2").contains(movies[0].title);
     });
   });
+  describe("The Go Back button", function () {
+    beforeEach(function () {
+      cy.visit("/");
+    });
+    it("should navigate from home page to movie details and back", function () {
+      cy.get(".card").eq(1).find("img").click();
+      cy.get("svg[data-icon=arrow-circle-left]").click();
+      cy.url().should("not.include", "/movies");
+      cy.get("h2").contains("No. Movies");
+    });
+    it("should navigate from favorites page to movie details and back", function () {// TODO
+    });
+  });
 });
