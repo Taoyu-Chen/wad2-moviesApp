@@ -1,6 +1,7 @@
 let movies;
 const movieId = 497582; // Enola Holmes movie id
 let reviews;
+const reviewsId = "5f69e4d0cee2f6003633becf";
 
 describe("Navigation", () => {
   before(() => {
@@ -59,7 +60,10 @@ describe("Navigation", () => {
       cy.url().should("not.include", `/movies/${movieId}/reviews`);
     });
     it("navigate to the full review page when a 'Full Review' link is clicked", () => {
-      // TODO
+      cy.contains("Show Reviews").click();
+      cy.url().should("include", `/movies/${movieId}/reviews`);
+      cy.contains("Full Review").click();
+      cy.url().should("include", `/reviews/${reviewsId}`);
     });
   });
   describe("From the Favorites page", () => {

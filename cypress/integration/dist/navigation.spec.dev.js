@@ -4,6 +4,7 @@ var movies;
 var movieId = 497582; // Enola Holmes movie id
 
 var reviews;
+var reviewsId = "5f69e4d0cee2f6003633becf";
 describe("Navigation", function () {
   before(function () {
     cy.request("https://api.themoviedb.org/3/discover/movie?api_key=".concat(Cypress.env("TMDB_KEY"), "&language=en-US&include_adult=false&include_video=false&page=1")).its("body").then(function (response) {
@@ -46,7 +47,11 @@ describe("Navigation", function () {
       cy.contains("Hide Reviews").click();
       cy.url().should("not.include", "/movies/".concat(movieId, "/reviews"));
     });
-    it("navigate to the full review page when a 'Full Review' link is clicked", function () {// TODO
+    it("navigate to the full review page when a 'Full Review' link is clicked", function () {
+      cy.contains("Show Reviews").click();
+      cy.url().should("include", "/movies/".concat(movieId, "/reviews"));
+      cy.contains("Full Review").click();
+      cy.url().should("include", "/reviews/".concat(reviewsId));
     });
   });
   describe("From the Favorites page", function () {
