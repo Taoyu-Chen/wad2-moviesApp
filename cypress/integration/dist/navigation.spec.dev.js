@@ -37,23 +37,25 @@ describe("Navigation", function () {
       cy.get("h2").contains("No. Movies");
     });
   });
-  describe("From the Movie Details page ", function () {
-    beforeEach(function () {
-      cy.visit("/movies/".concat(movieId));
+  /* describe("From the Movie Details page ", () => {
+      beforeEach(() => {
+        cy.visit(`/movies/${movieId}`);
+      });
+      it("should change browser URL when show/hide reviews is clicked", () => {
+        cy.contains("Show Reviews").click();
+        cy.url().should("include", `/movies/${movieId}/reviews`);
+        cy.contains("Hide Reviews").click();
+        cy.url().should("not.include", `/movies/${movieId}/reviews`);
+      });
+      it("navigate to the full review page when a 'Full Review' link is clicked", () => {
+        cy.contains("Show Reviews").click();
+        cy.url().should("include", `/movies/${movieId}/reviews`);
+        cy.contains("Full Review").click();
+        cy.url().should("include", `/reviews/${reviewsId}`);
+      });
     });
-    it("should change browser URL when show/hide reviews is clicked", function () {
-      cy.contains("Show Reviews").click();
-      cy.url().should("include", "/movies/".concat(movieId, "/reviews"));
-      cy.contains("Hide Reviews").click();
-      cy.url().should("not.include", "/movies/".concat(movieId, "/reviews"));
-    });
-    it("navigate to the full review page when a 'Full Review' link is clicked", function () {
-      cy.contains("Show Reviews").click();
-      cy.url().should("include", "/movies/".concat(movieId, "/reviews"));
-      cy.contains("Full Review").click();
-      cy.url().should("include", "/reviews/".concat(reviewsId));
-    });
-  });
+    */
+
   describe("From the Favorites page", function () {
     beforeEach(function () {
       cy.visit("/");

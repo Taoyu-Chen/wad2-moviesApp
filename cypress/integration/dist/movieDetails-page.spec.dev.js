@@ -16,7 +16,8 @@ describe("Movie Details Page", function () {
     });
   });
   beforeEach(function () {
-    cy.visit("/movies/".concat(movie.id));
+    cy.visit("/");
+    cy.get(".card").eq(2).find("img").click();
   });
   it("should display movie title in the page header", function () {
     cy.get("h2").contains(movie.title);
