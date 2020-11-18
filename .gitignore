@@ -8,7 +8,8 @@ cypress.env.json
 
 # production
 /build
-
+/cypress/videos
+/cypress/screenshots
 # misc
 .DS_Store
 /**/.DS_Store
