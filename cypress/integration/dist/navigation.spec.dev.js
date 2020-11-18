@@ -76,7 +76,15 @@ describe("Navigation", function () {
       cy.url().should("not.include", "/movies");
       cy.get("h2").contains("No. Movies");
     });
-    it("should navigate from favorites page to movie details and back", function () {// TODO
+    it("should navigate from favorites page to movie details and back", function () {
+      cy.get(".card").eq(0).find("button").click();
+      cy.get("nav").find("li").eq(2).find("a").click();
+      cy.get(".card").eq(0).find("img").click();
+      cy.url().should("include", "/movies/".concat(movies[0].id));
+      cy.get("h2").contains(movies[0].title);
+      cy.get("svg[data-icon=arrow-circle-left]").click();
+      cy.url().should("include", "/movies/favorites");
+      cy.get("h2").contains("Favorite Movies");
     });
   });
 });
