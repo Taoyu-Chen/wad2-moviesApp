@@ -40,6 +40,13 @@ build_jobX:
   script:
     - echo "build job X on demoBranch works"
 
+exercise_job:
+  stage: test
+  only:
+    - master
+  script:
+    - echo "test exercise job"
+
 e2etest:
   stage: test
   before_script:
