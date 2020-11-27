@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getUpcomingMovies = exports.getMovieReviews = exports.getGenres = exports.getMovie = exports.getMovies = void 0;
+exports.getTopRatingMovies = exports.getUpcomingMovies = exports.getMovieReviews = exports.getGenres = exports.getMovie = exports.getMovies = void 0;
 
 var getMovies = function getMovies() {
   return fetch("https://api.themoviedb.org/3/discover/movie?api_key=".concat(process.env.REACT_APP_TMDB_KEY, "&language=en-US&include_adult=false&page=1")).then(function (res) {
@@ -52,3 +52,13 @@ var getUpcomingMovies = function getUpcomingMovies() {
 };
 
 exports.getUpcomingMovies = getUpcomingMovies;
+
+var getTopRatingMovies = function getTopRatingMovies() {
+  return fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=".concat(process.env.REACT_APP_TMDB_KEY, "&language=en-US&page=1")).then(function (res) {
+    return res.json();
+  }).then(function (json) {
+    return json.results;
+  });
+};
+
+exports.getTopRatingMovies = getTopRatingMovies;
