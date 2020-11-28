@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getTopRatingMovies = exports.getUpcomingMovies = exports.getMovieReviews = exports.getGenres = exports.getMovie = exports.getMovies = void 0;
+exports.getSimilarMovies = exports.getTopRatingMovies = exports.getUpcomingMovies = exports.getMovieReviews = exports.getGenres = exports.getMovie = exports.getMovies = void 0;
 
 var getMovies = function getMovies() {
   return fetch("https://api.themoviedb.org/3/discover/movie?api_key=".concat(process.env.REACT_APP_TMDB_KEY, "&language=en-US&include_adult=false&page=1")).then(function (res) {
@@ -62,3 +62,13 @@ var getTopRatingMovies = function getTopRatingMovies() {
 };
 
 exports.getTopRatingMovies = getTopRatingMovies;
+
+var getSimilarMovies = function getSimilarMovies(id) {
+  return fetch("https://api.themoviedb.org/3/movie/".concat(id, "/similar?api_key=").concat(process.env.REACT_APP_TMDB_KEY, "&language=en-US&page=1")).then(function (res) {
+    return res.json();
+  }).then(function (json) {
+    return json.results;
+  });
+};
+
+exports.getSimilarMovies = getSimilarMovies;
