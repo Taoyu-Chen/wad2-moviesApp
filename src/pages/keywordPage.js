@@ -1,7 +1,7 @@
 
 import React from "react";
 //import StubAPI from "../api/stubAPI";
-import MovieDetails from "../components/movieDetails";
+import MovieDetailsWithKeywords from "../components/movieDetailsWithKeywords";
 import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
 import useMovieKeywords from "../hooks/useMovieKeywords";
@@ -17,7 +17,7 @@ const KeywordsPage = (props) => {
     {movie ? (
       <>
         <PageTemplate movie={movie}>
-          <MovieDetails movie={movie} />
+          <MovieDetailsWithKeywords movie={movie} keywords={keywords} />
         </PageTemplate>
         <div className="row">
           <div className="col-12 ">
