@@ -1,19 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SimilarMovieButton = ({ movie }) => {
+const KeyWordButton = ({ movie }) => {
 
   return (
-    <Link to={`/similar/${movie.id}`}
+    <Link to={`/keywords/${movie.id}`}
       >
       <button
         type="button"
         className="btn w-100 btn-primary"
       >
-          Look similar movies
+          Look movies keywords
       </button>
     </Link>
   );
 };
 
-export default SimilarMovieButton;
+export default KeyWordButton;
