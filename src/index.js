@@ -16,6 +16,8 @@ import SimilarMoviePage from './pages/similarMoviePage';
 import KeywordsPage from './pages/keywordPage';
 import { Provider } from 'react-redux';
 import store from './store';
+import Test from './pages/test';
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -33,6 +35,7 @@ const App = () => {
                   <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
                   <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
                   <Route exact path="/movies/top_rated" component={TopratedMoviesPage} />
+                  <Route exact path="/test" component={Test} />
                   <Route path="/movies/:id" component={MoviePage} />
                   <Route path="/" component={HomePage} />
                   <Redirect from="*" to="/" />

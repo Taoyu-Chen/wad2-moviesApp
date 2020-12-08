@@ -4,9 +4,11 @@ import React from "react";
 import PageTemplate from '../components/templateMovieListPage'
 import useSimilarMovie from "../hooks/useSimilarMovie";
 import ShowKeywords from '../components/buttons/showKeywords';
+import store from '../store';
 const SimilarMoviesPage = (props) => {
   const { id } = props.match.params;
-  const [movies, setMovies] = [];
+  const i = store.getState();
+  console.log(i);
   const [similarMovies] = useSimilarMovie(id)
   return (
       <PageTemplate

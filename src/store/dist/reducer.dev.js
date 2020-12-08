@@ -7,8 +7,12 @@ exports["default"] = void 0;
 
 var _actionTypes = require("./actionTypes");
 
+var _useSimilarMovie = _interopRequireDefault(require("../hooks/useSimilarMovie"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
 var defaultState = {
-  movieId: 0,
+  movieid: 0,
   movies: [],
   keywords: []
 };
@@ -19,7 +23,8 @@ var _default = function _default() {
 
   if (action.type === _actionTypes.GET_SIMILAR_MOVIES) {
     var newState = JSON.parse(JSON.stringify(state));
-    newState.movieId = action.value;
+    newState.movieid = action.movieid;
+    newState.movies = (0, _useSimilarMovie["default"])(action.movieid);
     return newState;
   }
 
