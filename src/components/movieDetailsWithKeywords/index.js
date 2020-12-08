@@ -1,9 +1,14 @@
 import React from "react";
 import "./movieDetails.css";
+import { makeStyles } from '@material-ui/core/styles';
+import Chip from '@material-ui/core/Chip';
+
+
 
 export default ({ movie,keywords }) => {
+
   return (
-    <>
+    <div>
       <h4>Overview</h4>
       <p>{movie.overview}</p>
       <ul className="list-group list-group-horizontal">
@@ -67,10 +72,10 @@ export default ({ movie,keywords }) => {
         </li>
         {keywords.map(k => (
           <li key={k.name} className="list-group-item">
-            {k.name}
+            <Chip label={k.name} />
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };

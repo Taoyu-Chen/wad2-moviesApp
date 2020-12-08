@@ -6,8 +6,8 @@ import useSimilarMovie from "../hooks/useSimilarMovie";
 import ShowKeywords from '../components/buttons/showKeywords';
 const SimilarMoviesPage = (props) => {
   const { id } = props.match.params;
+  const [movies, setMovies] = [];
   const [similarMovies] = useSimilarMovie(id)
-
   return (
       <PageTemplate
         title='Similar Movies'
