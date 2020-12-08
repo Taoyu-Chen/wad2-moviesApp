@@ -1,6 +1,5 @@
 
 import {GET_MOVIE_KEYWORDS, GET_SIMILAR_MOVIES, GET_TOPRATED_MOVIES} from './actionTypes'
-import useSimilarMovie from "../hooks/useSimilarMovie";
 const defaultState = {
   movieid: 0,
   movies: [],
@@ -10,8 +9,8 @@ const defaultState = {
 export default (state = defaultState, action) => {
   if (action.type === GET_SIMILAR_MOVIES) {
     const newState = JSON.parse(JSON.stringify(state));
-    newState.movieid = action.movieid;
-    newState.movies = useSimilarMovie(action.movieid);
+
+    newState.movies = action.movies;
     return newState;
   }
   if (action.type === GET_TOPRATED_MOVIES) {

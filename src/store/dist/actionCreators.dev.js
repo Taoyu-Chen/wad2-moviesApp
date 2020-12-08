@@ -10,7 +10,7 @@ var _actionTypes = require("./actionTypes");
 var getSimilarMovies = function getSimilarMovies(value) {
   return {
     type: _actionTypes.GET_SIMILAR_MOVIES,
-    movieid: value
+    movies: value
   };
 };
 
