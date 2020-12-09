@@ -4,6 +4,7 @@ import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
 import useMovie from "../hooks/useMovie";
+import SiteHeader from './components/siteHeader';
 
 const MoviePage = props => {
   const { id } = props.match.params;
@@ -11,6 +12,7 @@ const MoviePage = props => {
   
   return (
     <>
+      <SiteHeader />  
     {movie ? (
       <>
         <PageTemplate movie={movie}>

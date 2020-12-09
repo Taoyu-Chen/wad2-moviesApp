@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import PageTemplate from '../components/templateMovieListPage'
 import {MoviesContext} from '../contexts/moviesContext'
 import AddToWatchListButton from '../components/buttons/addToWatchList'
+import SiteHeader from './components/siteHeader';
 
 const MovieListPage = () => {
   const context = useContext(MoviesContext);
@@ -11,6 +12,8 @@ const MovieListPage = () => {
   });
   console.log(upcoming);
   return (
+    <>
+      <SiteHeader />  
       <PageTemplate
         title='Upcoming Movies'
         movies={upcoming}
@@ -18,6 +21,7 @@ const MovieListPage = () => {
           return <AddToWatchListButton movie={movie} /> 
         }}
       />
+    </>
   );
 };
 

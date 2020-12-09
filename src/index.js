@@ -6,7 +6,6 @@ import MoviePage from './pages/movieDetailsPage';
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";   // CHANGED
 import FavoriteMoviesPage from './pages/favoritesMoviesPage';       // NEW
 import MovieReviewPage from "./pages/movieReviewPage";
-import SiteHeader from './components/siteHeader';
 import UpcomingMoviesPage from './pages/upcomingMoviesPage';
 import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
@@ -22,7 +21,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="jumbotron">
-        <SiteHeader />      {/* New Header  */}
+            {/* New Header  */}
         <div className="container-fluid">
           <Provider store={store}>
             <MoviesContextProvider> 
