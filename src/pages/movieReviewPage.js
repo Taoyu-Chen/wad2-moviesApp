@@ -1,7 +1,7 @@
 import React from "react";
 import PageTemplate from '../components/templateMoviePage'
 import MovieReview from "../components/movieReview";
-import SiteHeader from './components/siteHeader';
+import SiteHeader from '../components/siteHeader';
 
 const MovieReviewPage = (props) => {
   return (

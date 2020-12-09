@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import PageTemplate from '../components/templateMovieListPage'
 import { getTopRatingMovies } from "../api/tmdb-api";
 import SimilarMovieButton from '../components/buttons/similarMovieButton';
-
+import SiteHeader from '../components/siteHeader';
 const ToprateMoviesPage = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
@@ -14,6 +14,8 @@ const ToprateMoviesPage = () => {
   }, []);
 
   return (
+    <> 
+      <SiteHeader />
       <PageTemplate
         title='Top Rate Movies'
         movies={movies}
@@ -21,6 +23,7 @@ const ToprateMoviesPage = () => {
           return <SimilarMovieButton movie={movie} /> 
         }}
       />
+    </>
   );
 };
 

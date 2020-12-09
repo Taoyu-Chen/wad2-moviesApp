@@ -7,13 +7,15 @@ import MovieReviews from "../components/movieReviews";
 import store from '../store';
 import useMovie from "../hooks/useMovie";
 import { Link, Route, withRouter } from "react-router-dom";
+import SiteHeader from '../components/siteHeader';
 const KeywordsPage = (props) => {
   const { id } = props.match.params;
   const [movie] = useMovie(id) 
   const keywords = store.getState().keywords;
   console.log(keywords);
   return (
-      <>
+    <>
+      <SiteHeader />
     {movie ? (
       <>
         <PageTemplate movie={movie}>
