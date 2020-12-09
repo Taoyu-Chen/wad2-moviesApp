@@ -15,7 +15,7 @@ import SimilarMoviePage from './pages/similarMoviePage';
 import KeywordsPage from './pages/keywordPage';
 import { Provider } from 'react-redux';
 import store from './store';
-import {persistor} from './redux/store/store'
+import {persistor} from './store'
 import {PersistGate} from 'redux-persist/lib/integration/react';
 import Test from './pages/test';
 
@@ -23,7 +23,6 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="jumbotron">
-            {/* New Header  */}
         <div className="container-fluid">
           <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
