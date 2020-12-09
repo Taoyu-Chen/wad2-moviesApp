@@ -4,13 +4,13 @@ import React from "react";
 import MovieDetailsWithKeywords from "../components/movieDetailsWithKeywords";
 import PageTemplate from "../components/templateMoviePage";
 import MovieReviews from "../components/movieReviews";
-import useMovieKeywords from "../hooks/useMovieKeywords";
+import store from '../store';
 import useMovie from "../hooks/useMovie";
 import { Link, Route, withRouter } from "react-router-dom";
 const KeywordsPage = (props) => {
   const { id } = props.match.params;
   const [movie] = useMovie(id) 
-  const [keywords] = useMovieKeywords(id)
+  const keywords = store.getState().keywords;
   console.log(keywords);
   return (
       <>

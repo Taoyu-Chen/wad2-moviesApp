@@ -8,7 +8,7 @@ exports["default"] = void 0;
 var _actionTypes = require("./actionTypes");
 
 var defaultState = {
-  movieid: 0,
+  movie: [],
   movies: [],
   keywords: []
 };
@@ -33,7 +33,8 @@ var _default = function _default() {
   if (action.type === _actionTypes.GET_MOVIE_KEYWORDS) {
     var _newState2 = JSON.parse(JSON.stringify(state));
 
-    _newState2.movieId = action.value;
+    _newState2.keywords = action.keywords;
+    _newState2.movie = action.movie;
     return _newState2;
   }
 
