@@ -4,11 +4,14 @@ import React from "react";
 import PageTemplate from '../components/templateMovieListPage'
 import ShowKeywords from '../components/buttons/showKeywords';
 import store from '../store';
+import MaterialuiSiteHeader from '../components/materialuiSiteHeader/siteHeaderui';
 const SimilarMoviesPage = (props) => {
 
   const similarMovies = store.getState().movies;
   console.log(similarMovies);
   return (
+    <>
+      <MaterialuiSiteHeader />
       <PageTemplate
         title='Similar Movies'
         movies={similarMovies}
@@ -16,6 +19,7 @@ const SimilarMoviesPage = (props) => {
           return <ShowKeywords movie={movie}/> 
         }}
       />
+    </>
   );
 };
 

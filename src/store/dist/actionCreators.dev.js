@@ -16,11 +16,10 @@ var getSimilarMovies = function getSimilarMovies(value) {
 
 exports.getSimilarMovies = getSimilarMovies;
 
-var getMovieKeywords = function getMovieKeywords(value1, value2) {
+var getMovieKeywords = function getMovieKeywords(value) {
   return {
     type: _actionTypes.GET_MOVIE_KEYWORDS,
-    keywords: value1,
-    movie: value2
+    keywords: value
   };
 };
 

@@ -5,8 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _createBreakpoints = require("@material-ui/core/styles/createBreakpoints");
-
 var _react = require("react");
 
 var _tmdbApi = require("../api/tmdb-api");
