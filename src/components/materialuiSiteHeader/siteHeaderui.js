@@ -29,9 +29,15 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbarTitle: {
     flexGrow: 1,
+    marginLeft: 60,
+    marginTop: 0
+  },
+  toolbarTMDB: {
+    flexGrow: 1
   },
   movieicon: {
     margin: 20,
+    marginLeft: 400
   },
   theatersicon: {
     margin: 20,
@@ -43,13 +49,13 @@ const SiteHeader = () => {
     <nav className="navbar  navbar-light fixed-top  bg-light ">
       <nav className="navbar-brand text-white">
         <Lin to="/">
-          <Typography variant="h5" color="inherit" noWrap className={classes.toolbarTitle}>
+          <Typography variant="h5" color="inherit" noWrap className={classes.toolbarTMDB}>
           TMDB Client
           </Typography>
         </Lin>
       </nav>
       <MovieIcon className={classes.movieicon}/>
-      <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
+      <Typography variant="h5" color="inherit" noWrap className={classes.toolbarTitle}>
         For the movie enthusiast !!
       </Typography>
       <TheatersIcon className={classes.theatersicon} />

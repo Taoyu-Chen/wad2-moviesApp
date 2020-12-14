@@ -29,9 +29,10 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbarTitle: {
     flexGrow: 1,
+    marginLeft: 400
   },
   movieicon: {
-    margin: 20,
+    marginLeft: 500,
   },
   theatersicon: {
     margin: 20,
@@ -45,7 +46,7 @@ export default function SiteHeader() {
           <Typography variant="h5" color="inherit" noWrap className={classes.toolbarTitle}>
           TMDB Client
           </Typography>
-        <MovieIcon className={classes.movieicon}/>
+          <MovieIcon className={classes.movieicon}/>
           <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
           For the movie enthusiast !!
           </Typography>
