@@ -1,8 +1,7 @@
 
 import React from "react";
 //import StubAPI from "../api/stubAPI";
-import PageTemplate from '../components/materialuiTemplateMovieListPage'
-import ShowKeywords from '../components/buttons/showKeywords';
+import PageTemplate from '../components/materialuiTemplateMovieListPage';
 import CombineButton from '../components/buttons/combineButton';
 import store from '../store';
 import MaterialuiSiteHeader from '../components/materialuiSiteHeader/siteHeaderui';

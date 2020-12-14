@@ -1,10 +1,10 @@
 
 import React, { useState, useEffect } from "react";
 //import StubAPI from "../api/stubAPI";
-import PageTemplate from '../components/templateMovieListPage'
+import PageTemplate from '../components/materialuiTemplateMovieListPage';
 import { getTopRatingMovies } from "../api/tmdb-api";
-import SimilarMovieButton from '../components/buttons/similarMovieButton';
-import SiteHeader from '../components/siteHeader';
+import CombineButton from '../components/buttons/combineButton';
+import MaterialuiSiteHeader from '../components/materialuiSiteHeader/siteHeaderui';
 const ToprateMoviesPage = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
@@ -15,12 +15,12 @@ const ToprateMoviesPage = () => {
 
   return (
     <> 
-      <SiteHeader />
+      <MaterialuiSiteHeader />
       <PageTemplate
         title='Top Rate Movies'
         movies={movies}
         action={(movie) => {
-          return <SimilarMovieButton movie={movie} /> 
+          return <CombineButton movie={movie} /> 
         }}
       />
     </>

@@ -4,16 +4,8 @@ import store from '../../store';
 import { getMovieKeywords } from "../../store/actionCreators";
 import useMovieKeywords from "../../hooks/useMovieKeywords";
 import useMovie from "../../hooks/useMovie";
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-    },
-  },
-}));
 const KeyWordButton = ({ movie }) => {
   const movieid = movie.id;
   const [keywords] = useMovieKeywords(movieid);

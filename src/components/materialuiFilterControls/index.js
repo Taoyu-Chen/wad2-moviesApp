@@ -4,7 +4,6 @@ import { GenresContext } from '../../contexts/genresContext'
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputBase from '@material-ui/core/InputBase';
@@ -70,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
 
 const FilterControls = props => {
   const classes = useStyles();
+  // eslint-disable-next-line
   const [genre, setGenre] = React.useState('genre filter');
   const context = useContext(GenresContext);
 
@@ -95,6 +95,7 @@ const FilterControls = props => {
             <span></span>
             <InputLabel
             htmlFor="demo-customized-textbox"
+
             >Title Search</InputLabel>
             <BootstrapInput id="demo-customized-textbox"
             onChange={handleTextChange}/>

@@ -27,19 +27,20 @@ const MovieCard = ({movie, action}) => {
   return (
     <div className="col-sm-3">
       <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-            className={classes.media}
-            image={
-            movie.poster_path
-              ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-              : "./film-poster-placeholder.png"
-          }
-        />
-        <CardContent>
+        <CardActionArea>
           <Link to={`/movies/${movie.id}`}>
+            <CardMedia
+                className={classes.media}
+                image={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                  : "./film-poster-placeholder.png"
+              }
+            />
+          </Link>
+        <CardContent>
+          
         
-        </Link>
           <Typography variant="body2" color="textSecondary" component="p">
             <h4 className="card-title ">{movie.title}</h4>
           <p>
