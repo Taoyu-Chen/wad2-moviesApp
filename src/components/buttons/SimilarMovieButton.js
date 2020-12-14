@@ -3,7 +3,22 @@ import { Link } from "react-router-dom";
 import store from '../../store';
 import { getSimilarMovies } from "../../store/actionCreators";
 import useSimilarMovie from "../../hooks/useSimilarMovie";
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+  similarbtn: {
+    marginLeft: 35
+  }
+}));
+
 const SimilarMovieButton = ({ movie }) => {
+  const classes = useStyles();
   const movieid = movie.id;
   const [movies] = useSimilarMovie(movieid);
   const handleSimilarClickChange = () => {
@@ -15,13 +30,11 @@ const SimilarMovieButton = ({ movie }) => {
   return (
     <>
       <Link to={`/similar/${movie.id}`}>
-        <button
-          type="button"
-          className="btn w-100 btn-primary"
+        <Button variant="contained" color="primary"
           onClick={handleSimilarClickChange}
-        >
-            Look similar movies
-        </button>
+          className={classes.similarbtn}>
+          Show similar movies
+        </Button>
       </Link>
     </>
   );
