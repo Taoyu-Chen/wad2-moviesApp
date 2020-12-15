@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 const MovieCard = ({movie, action}) => {
   const classes = useStyles();
   return (
-    <div className="col-sm-3">
+    <div data-cy="moviecard" className="col-sm-3">
       <Card className={classes.root}>
         <CardActionArea>
           <Link to={`/movies/${movie.id}`}>

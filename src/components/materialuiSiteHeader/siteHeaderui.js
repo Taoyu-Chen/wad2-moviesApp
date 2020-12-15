@@ -80,28 +80,27 @@ const SiteHeader = () => {
       <TheatersIcon className={classes.theatersicon} />
       <nav className="navbar navbar-expand ">
         <ul className="navbar-nav">
-          <li className="nav-item">
+
             <Lin style={{ textDecoration:'none'}} to="/">
               <Link id="buy" variant="button" color="textPrimary" className={classes.link}>
                 <HomeButton />
               </Link>
             </Lin>
-          </li>
-          <li className="nav-item">
+
             <Lin style={{ textDecoration:'none'}} to="/movies/upcoming">
               <UpcomingButton />
             </Lin>
-          </li>
-          <li className="nav-item">
+
+
             <Lin style={{ textDecoration:'none'}} to="/movies/favorites">
               <FavoriteButton />
             </Lin>
-          </li>
-          <li className="nav-item">
+
+
             <Lin style={{ textDecoration:'none'}} to="/movies/top_rated">
               <TopRateButton /> 
             </Lin>
-          </li>
+
           <li>
             <Lin style={{ textDecoration:'none'}} to="/signup">
           <Button color="primary" variant="outlined" >

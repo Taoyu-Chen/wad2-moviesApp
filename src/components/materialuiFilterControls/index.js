@@ -85,7 +85,7 @@ const FilterControls = props => {
   };
 
   return (
-    <div className="row bg-light">
+    <div data-cy="filter" className="row bg-light">
       <div className="col-md-12">
         <h4>
           <FormControl className={classes.listText}>
@@ -97,7 +97,7 @@ const FilterControls = props => {
             htmlFor="demo-customized-textbox"
 
             >Title Search</InputLabel>
-            <BootstrapInput id="demo-customized-textbox"
+            <BootstrapInput data-cy="listFilter" id="demo-customized-textbox"
             onChange={handleTextChange}/>
           </FormControl>
           <FormControl className={classes.genreText}>
@@ -110,6 +110,7 @@ const FilterControls = props => {
               id="demo-simple-select genre"
               value={genre.name}
               placeholder="Genre Search"
+              data-cy="select"
               onChange={handleGenreChange}
               input={<BootstrapInput value="material"/>}
             >
