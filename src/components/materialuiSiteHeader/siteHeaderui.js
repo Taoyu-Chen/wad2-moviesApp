@@ -1,9 +1,9 @@
-import React from "react";
+import React ,{useState} from "react";
 import "../../globals/fontawesome";
 import "./movieui.css";
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
-import { Link as Lin} from "react-router-dom";
+import { Link as Lin, useHistory} from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import MovieIcon from '@material-ui/icons/Movie';
@@ -12,6 +12,7 @@ import HomeButton from './homeButton';
 import UpcomingButton from './upcomingButton';
 import TheatersIcon from '@material-ui/icons/Theaters';
 import FavoriteButton from './FavoriteButton';
+import { useAuth } from "../../contexts/authContext";
 const useStyles = makeStyles((theme) => ({
   '@global': {
     ul: {
@@ -42,18 +43,36 @@ const useStyles = makeStyles((theme) => ({
   theatersicon: {
     margin: 20,
   },
+  buttonlink: {
+    marginLeft :20
+  }
 }));
 const SiteHeader = () => {
   const classes = useStyles();
+  const [error, setError] = useState("")
+  const { currentUser, logout } = useAuth()
+  async function handleLogout() {
+    setError("")
+
+    try {
+      await logout()
+    } catch {
+      setError("Failed to log out")
+    }
+  }
   return (
     <nav className="navbar  navbar-light fixed-top  bg-light ">
       <nav className="navbar-brand text-white">
         <Lin to="/">
           <Typography variant="h5" color="inherit" noWrap className={classes.toolbarTMDB}>
-          TMDB Client
+            TMDB Client
           </Typography>
+          
         </Lin>
       </nav>
+      <Typography variant="h5" color="inherit" noWrap className={classes.toolbarTMDB}>
+            {currentUser.email}
+          </Typography>
       <MovieIcon className={classes.movieicon}/>
       <Typography variant="h5" color="inherit" noWrap className={classes.toolbarTitle}>
         For the movie enthusiast !!
@@ -84,9 +103,16 @@ const SiteHeader = () => {
             </Lin>
           </li>
           <li>
-            <Button color="primary" variant="outlined" className={classes.link}>
-            Login
+            <Lin style={{ textDecoration:'none'}} to="/signup">
+          <Button color="primary" variant="outlined" >
+                SignUp
           </Button>
+            </Lin>
+          <Lin style={{ textDecoration:'none'}} to="/login">
+          <Button color="primary" variant="outlined" onClick={handleLogout} className={classes.buttonlink}>
+              LogOut 
+          </Button>
+              </Lin>
           </li>
         </ul>
       </nav>
