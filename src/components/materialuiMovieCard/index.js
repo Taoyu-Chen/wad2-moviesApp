@@ -14,12 +14,13 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    marginLeft: 30,
-    maxWidth: 520
+    marginLeft: 25,
+    maxWidth: 350,
+    marginBottom: 20 
   },
   media: {
-    height: 700,
-    width: 520
+    height: 520,
+    width: 350
   },
 });
 const MovieCard = ({movie, action}) => {

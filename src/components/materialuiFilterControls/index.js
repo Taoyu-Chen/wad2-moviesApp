@@ -85,7 +85,7 @@ const FilterControls = props => {
   };
 
   return (
-    <div className="row bg-warning">
+    <div className="row bg-light">
       <div className="col-md-12">
         <h4>
           <FormControl className={classes.listText}>

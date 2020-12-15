@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1
   },
   movieicon: {
-    margin: 20,
-    marginLeft: 400
+    margin: 10,
+    marginLeft: 30
   },
   theatersicon: {
     margin: 20,

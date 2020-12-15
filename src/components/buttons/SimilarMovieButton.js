@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   similarbtn: {
-    marginLeft: 35
+    marginLeft: 30
   }
 }));
 
@@ -33,7 +33,7 @@ const SimilarMovieButton = ({ movie }) => {
         <Button variant="contained" color="primary"
           onClick={handleSimilarClickChange}
           className={classes.similarbtn}>
-          Show similar movies
+          similar movies
         </Button>
       </Link>
     </>
