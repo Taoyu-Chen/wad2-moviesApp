@@ -22,21 +22,22 @@ describe("Home Page ", () => {
   })
   beforeEach(() => {
     cy.visit("/movies/top_rated")
-    cy.wait(10000)
-    cy.get('span[class="MuiTouchRipple-root"]').eq(14).click();
+    cy.wait(1000)
+    cy.get('button[data-cy=similarMovieButton]').eq(7).click();
   });
 
 
   describe("Base test", () => {
-    it.only("displays page header", () => {
+    it("displays page header", () => {
+      cy.wait(2000)
       cy.get("h2").contains("Similar Movies");
       cy.get(".badge").contains(20);
     });
   });
   describe("Filtering", () => {
     describe("By movie title", () => {
-      it.only("should display movies with 'an' in the title", () => {
-        cy.wait(20000)
+      it("should display movies with 'an' in the title", () => {
+        
         const searchString = 'an'
         const matchingMovies = filterByTitle(movies, searchString);
         cy.get('[data-cy=listFilter]').type(searchString);

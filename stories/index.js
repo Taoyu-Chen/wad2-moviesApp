@@ -16,6 +16,45 @@ import { MemoryRouter } from "react-router";
 import GenresContextProvider from "../src/contexts/genresContext";
 import { action } from "@storybook/addon-actions";
 
+const keyowrdsSample = [
+    {
+      "id": 2321,
+      "name": "bunker"
+    },
+    {
+      "id": 2902,
+      "name": "space battle"
+    },
+    {
+      "id": 3837,
+      "name": "failure"
+    },
+    {
+      "id": 6066,
+      "name": "defeat"
+    },
+    {
+      "id": 9663,
+      "name": "sequel"
+    },
+    {
+      "id": 156395,
+      "name": "imax"
+    },
+    {
+      "id": 161176,
+      "name": "space opera"
+    },
+    {
+      "id": 178710,
+      "name": "stormtrooper"
+    },
+    {
+      "id": 202396,
+      "name": "military operation"
+    }
+]
+
 const sample = {
   adult: false,
   backdrop_path: "/5Iw7zQTHVRBOYpA0V6z0yypOPZh.jpg",

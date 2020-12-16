@@ -32,6 +32,7 @@ const KeyWordButton = ({ movie }) => {
     <Link to={`/keywords/${movie.id}`}
     >
       <Button variant="contained" color="primary"
+        data-cy="keywordsButton"
         onClick={handleKewordsClick}
         className={classes.keywordsbtn}
       >
