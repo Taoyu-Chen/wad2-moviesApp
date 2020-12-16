@@ -32,7 +32,8 @@ const SimilarMovieButton = ({ movie }) => {
       <Link to={`/similar/${movie.id}`}>
         <Button variant="contained" color="primary"
           onClick={handleSimilarClickChange}
-          className={classes.similarbtn}>
+          className={classes.similarbtn}
+          data-cy="similarMovieButton">
           similar movies
         </Button>
       </Link>
