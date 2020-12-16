@@ -2,9 +2,13 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import MovieCard from "../src/components/movieCard";
+import MaterialuiMovieCard from "../src/components/materialuiMovieCard";
+import CombineButton from "../src/components/buttons/combineButton";
 import FilterControls from "../src/components/filterControls";
+import MaterialuiFilterControls from "../src/components/materialuiFilterControls";
 import MoviesHeader from "../src/components/headerMovieList";
 import MovieList from "../src/components/movieList";
+import MaterialuiMovieList from "../src/components/materialuiMovieList";
 import MovieDetails from "../src/components/movieDetails";
 import MovieHeader from "../src/components/headerMovie";
 import AddFavoriteButton from "../src/components/buttons/addToFavorites";
@@ -152,3 +156,74 @@ storiesOf("Movie Details Page/MovieHeader", module)
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
   .add("default", () => <MovieHeader movie={sample} />);
+
+storiesOf("Home Page/MovieCard", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => (
+    <MovieCard
+      movie={sample}
+      action={movie => <button className="btn w-100 btn-primary">Test</button>}
+    />
+  ))
+  .add("exception", () => {
+    const sampleNoPoster = { ...sample, poster_path: undefined };
+    return (
+      <MovieCard
+        movie={sampleNoPoster}
+        action={movie => (
+          <button className="btn w-100 btn-primary">Test</button>
+        )}
+      />
+    );
+  });
+
+
+  storiesOf("Top rated Page/MovieCard", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => (
+    <MaterialuiMovieCard
+      movie={sample}
+      action={movie => <CombineButton movie={movie}/> }
+    />
+  ))
+  .add("exception", () => {
+    const sampleNoPoster = { ...sample, poster_path: undefined };
+    return (
+      <MaterialuiMovieCard
+        movie={sampleNoPoster}
+        action={movie => (
+          <CombineButton movie={movie}/>
+        )}
+      />
+    );
+  });
+  storiesOf("Top rated Page/FilterControls", module)
+  .addDecorator(story => (
+    <GenresContextProvider>{story()}</GenresContextProvider>
+  ))
+  .add("default", () => (
+    <MaterialuiFilterControls onUserInput={action("button-click")} numMovies={10} />
+  ));
+  storiesOf("Top rated Page/Header", module).add("default", () => (
+  <MoviesHeader title="Top rated Movies" numMovies={10} />
+  ));
+
+  storiesOf("Top rated Page/MovieList", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => {
+    const movies = [sample, sample, sample, sample, sample];
+    return (
+      <MaterialuiMovieList
+        movies={movies}
+        action={movie => (
+          <CombineButton movie={movie}/>
+        )}
+      />
+    );
+  });
