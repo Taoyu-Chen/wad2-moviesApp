@@ -7,6 +7,7 @@ import CombineButton from "../src/components/buttons/combineButton";
 import FilterControls from "../src/components/filterControls";
 import MaterialuiFilterControls from "../src/components/materialuiFilterControls";
 import MoviesHeader from "../src/components/headerMovieList";
+import MovieDetailsWithKeywords from "../src/components/movieDetailsWithKeywords";
 import MovieList from "../src/components/movieList";
 import MaterialuiMovieList from "../src/components/materialuiMovieList";
 import MovieDetails from "../src/components/movieDetails";
@@ -54,6 +55,7 @@ const keyowrdsSample = [
       "name": "military operation"
     }
 ]
+
 
 const sample = {
   adult: false,
@@ -266,3 +268,14 @@ storiesOf("Home Page/MovieCard", module)
       />
     );
   });
+
+  storiesOf("Movie Details With Keywords Page/MovieDetails", module).add("default", () => (
+    <MovieDetailsWithKeywords movie={sample} keywords={keyowrdsSample}/>
+));
+
+storiesOf("Movie Details With Keywords Page/MovieHeader", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => <MovieHeader movie={sample} />);
+

@@ -24,14 +24,14 @@ export default ({ movie,keywords }) => {
         <li key="ruh" className="list-group-item list-group-item-dark">
           Runtime (min.)
         </li>
-        <li key="rut" >
-          <Chip label={movie.runtime} />
+        <li key="rut" className="list-group-item ">
+          {movie.runtime}
         </li>
         <li key="rdh" className="list-group-item list-group-item-dark">
           Release Date
         </li>
-        <li key="rdv" >
-          <Chip label={movie.release_date} />
+        <li key="rdv" className="list-group-item ">
+          {movie.release_date}
         </li>
       </ul>
 
@@ -40,8 +40,8 @@ export default ({ movie,keywords }) => {
           Genres
         </li>
         {movie.genres.map(g => (
-          <li key={g.name} >
-            <Chip label={g.name} />
+          <li key={g.name} className="list-group-item">
+            {g.name}
           </li>
         ))}
       </ul>
@@ -50,8 +50,8 @@ export default ({ movie,keywords }) => {
           Spoken Languages
         </li>
         {movie.spoken_languages.map(lang => (
-          <li key={lang.name} >
-            <Chip label={lang.name} />
+          <li key={lang.name} className="list-group-item">
+            {lang.name}
           </li>
         ))}
       </ul>
@@ -60,8 +60,8 @@ export default ({ movie,keywords }) => {
           Production Companies
         </li>
         {movie.production_companies.map(pc => (
-          <li key={pc.name}>
-            <Chip label={pc.name} />
+          <li key={pc.name} className="list-group-item">
+            {pc.name}
           </li>
         ))}
       </ul>
@@ -70,19 +70,19 @@ export default ({ movie,keywords }) => {
           Production Countries
         </li>
         {movie.production_countries.map(pct => (
-          <li key={pct.name}>
-            <Chip label={pct.name} />
+          <li key={pct.name} className="list-group-item">
+            {pct.name}
           </li>
         ))}
       </ul>
       <ul className="list-group list-group-horizontal">
-        <li key="pct" className="list-group-item list-group-item-dark">
+        <li key="key" className="list-group-item list-group-item-dark">
           keywords
         </li>
         <div className={classes.root}>
         {keywords.map(k => (
           <li key={k.name}>
-            <Chip label={k.name} />
+            <Chip data-cy="keyword" label={k.name} />
           </li>
         ))}
         </div>

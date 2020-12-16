@@ -7,7 +7,7 @@ const KeyWordButton = ({ movie }) => {
 
   return (
     <>
-      <ShowKeywords data-cy="similarButton" movie={movie} />
+      <ShowKeywords movie={movie} />
       <SimilarMovieButton movie={movie}  />
     </>
   );
