@@ -1,6 +1,6 @@
 import React from "react";
 import ShowKeywords from "./showKeywords";
-import SimilarMovieButton from "./similarMovies";
+import SimilarMovieButton from "./similarMoviesButton";
 
 
 const KeyWordButton = ({ movie }) => {

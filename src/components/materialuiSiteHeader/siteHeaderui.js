@@ -1,9 +1,9 @@
-import React ,{useState} from "react";
+import React from "react";
 import "../../globals/fontawesome";
 import "./movieui.css";
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
-import { Link as Lin, useHistory} from "react-router-dom";
+import { Link as Lin} from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import MovieIcon from '@material-ui/icons/Movie';
@@ -49,16 +49,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 const SiteHeader = () => {
   const classes = useStyles();
-  const [error, setError] = useState("")
   const { currentUser, logout } = useAuth()
   async function handleLogout() {
-    setError("")
+    await logout()
 
-    try {
-      await logout()
-    } catch {
-      setError("Failed to log out")
-    }
   }
   return (
     <nav className="navbar  navbar-light fixed-top  bg-light ">
@@ -71,7 +65,7 @@ const SiteHeader = () => {
         </Lin>
       </nav>
       <Typography variant="h5" color="inherit" noWrap className={classes.toolbarTMDB}>
-            {currentUser.email}
+            <div data-cy="email">{currentUser.email}</div>
           </Typography>
       <MovieIcon className={classes.movieicon}/>
       <Typography variant="h5" color="inherit" noWrap className={classes.toolbarTitle}>
@@ -103,12 +97,12 @@ const SiteHeader = () => {
 
           <li>
             <Lin style={{ textDecoration:'none'}} to="/signup">
-          <Button color="primary" variant="outlined" >
+          <Button data-cy="signupButton"color="primary" variant="outlined" >
                 SignUp
           </Button>
             </Lin>
           <Lin style={{ textDecoration:'none'}} to="/login">
-          <Button color="primary" variant="outlined" onClick={handleLogout} className={classes.buttonlink}>
+          <Button color="primary" data-cy="logoutButton" variant="outlined" onClick={handleLogout} className={classes.buttonlink}>
               LogOut 
           </Button>
               </Lin>
