@@ -279,3 +279,50 @@ storiesOf("Movie Details With Keywords Page/MovieHeader", module)
   ))
   .add("default", () => <MovieHeader movie={sample} />);
 
+storiesOf("Similar Movie Page/MovieCard", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => (
+    <MaterialuiMovieCard
+      movie={sample}
+      action={movie => <CombineButton movie={movie}/> }
+    />
+  ))
+  .add("exception", () => {
+    const sampleNoPoster = { ...sample, poster_path: undefined };
+    return (
+      <MaterialuiMovieCard
+        movie={sampleNoPoster}
+        action={movie => (
+          <CombineButton movie={movie}/>
+        )}
+      />
+    );
+  });
+  storiesOf("Similar Movie Page/FilterControls", module)
+  .addDecorator(story => (
+    <GenresContextProvider>{story()}</GenresContextProvider>
+  ))
+  .add("default", () => (
+    <MaterialuiFilterControls onUserInput={action("button-click")} numMovies={10} />
+  ));
+  storiesOf("Similar Movie Page/Header", module).add("default", () => (
+  <MoviesHeader title="Top rated Movies" numMovies={10} />
+  ));
+
+  storiesOf("Similar Movie Page/MovieList", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => {
+    const movies = [sample, sample, sample, sample, sample];
+    return (
+      <MaterialuiMovieList
+        movies={movies}
+        action={movie => (
+          <CombineButton movie={movie}/>
+        )}
+      />
+    );
+  });
