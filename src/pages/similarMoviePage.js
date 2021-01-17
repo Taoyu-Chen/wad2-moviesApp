@@ -7,7 +7,7 @@ import store from '../store';
 import MaterialuiSiteHeader from '../components/materialuiSiteHeader/siteHeaderui';
 const SimilarMoviesPage = (props) => {
 
-  const similarMovies = store.getState().movies;
+  const similarMovies = store.getState().similarMovies;
   console.log(similarMovies);
   return (
     <>

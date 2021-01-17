@@ -3,8 +3,16 @@ import { Link } from "react-router-dom";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./siteHeader.css";
-
+import store from '../../store';
+import { getTopratedMovies } from "../../store/actionCreators";
+import useTopratedMovie from "../../hooks/useTopratedMovies";
 const SiteHeader = () => {
+  const [movies] = useTopratedMovie();
+  const handleClick = () => {
+    const action = getTopratedMovies(movies);
+    store.dispatch(action)
+  };
+
   return (
     <nav className="navbar  navbar-light fixed-top  bg-dark ">
       <nav className="navbar-brand text-white">
@@ -42,7 +50,7 @@ const SiteHeader = () => {
               Favorites
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item" onClick={handleClick}>
             <Link className="nav-link text-white" to="/movies/top_rated">
               Top Rated
             </Link>

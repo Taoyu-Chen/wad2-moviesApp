@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import store from '../../store';
 import { getSimilarMovies } from "../../store/actionCreators";
-import useSimilarMovie from "../../hooks/useSimilarMovie";
+import useSimilarMovies from "../../hooks/useSimilarMovies";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 const SimilarMovieButton = ({ movie }) => {
   const classes = useStyles();
   const movieid = movie.id;
-  const [movies] = useSimilarMovie(movieid);
+  const [movies] = useSimilarMovies(movieid);
   const handleSimilarClickChange = () => {
     
     const action = getSimilarMovies(movies);
