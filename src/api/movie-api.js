@@ -25,3 +25,47 @@ export const getMovies = () => {
         }
     }).then(res => res.json());
 };
+
+export const getTopRatingMovies = () => {
+    return fetch(
+    '/api/toprated/db',{headers: {
+        'Authorization': window.localStorage.getItem('token')
+        }
+    }).then(res => res.json());
+};
+
+export const getSimilarMovies = (id) => {
+    return fetch(
+    `/api/toprated/db/${id}`,{headers: {
+        'Authorization': window.localStorage.getItem('token')
+        }
+    }).then(res => res.json());
+};
+
+export const getMovieKeywords = (id) => {
+    return fetch(
+    `/api/keywords/db/${id}`,{headers: {
+        'Authorization': window.localStorage.getItem('token')
+        }
+    }).then(res => res.json());
+};
+
+export const deleteTopratedMovie = (id) => {
+    return fetch(`/api/toprated/${id}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': window.localStorage.getItem('token')
+        },
+        method: 'delete'
+    }).then(res => res.json())
+};
+
+export const deleteSimilarMovie = (id) => {
+    return fetch(`/api/similar/${id}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': window.localStorage.getItem('token')
+        },
+        method: 'delete'
+    }).then(res => res.json())
+};
