@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 //import StubAPI from "../api/stubAPI";
 import PageTemplate from '../components/materialuiTemplateMovieListPage';
 //import { getTopRatingMovies } from "../api/tmdb-api";
-import CombineButton from '../components/buttons/combineButton';
+import CombineSimilar from '../components/buttons/combineSimilar';
 import store from '../store';
 import MaterialuiSiteHeader from '../components/materialuiSiteHeader/siteHeaderui';
 const ToprateMoviesPage = () => {
@@ -17,7 +17,7 @@ const ToprateMoviesPage = () => {
         title='Top Rate Movies'
         movies={topratedMovies}
         action={(movie) => {
-          return <CombineButton movie={movie} /> 
+          return <CombineSimilar movie={movie} /> 
         }}
       />
     </>

@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   similarbtn: {
-    marginLeft: 30
+    marginLeft: 5,
+    marginRight: 5
   }
 }));
 
@@ -34,7 +35,7 @@ const SimilarMovieButton = ({ movie }) => {
           onClick={handleSimilarClickChange}
           className={classes.similarbtn}
           data-cy="similarMovieButton">
-          similar movies
+          similar
         </Button>
       </Link>
     </>

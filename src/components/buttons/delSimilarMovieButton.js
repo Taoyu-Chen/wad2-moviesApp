@@ -14,8 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   keywordsbtn: {
-    marginLeft: 10,
-    marginRight: 2
+    marginLeft: 2
   }
 }));
 const KeyWordButton = ({ movie }) => {
@@ -23,7 +22,7 @@ const KeyWordButton = ({ movie }) => {
   const movieid = movie.id;
   const [keywords] = useMovieKeywords(movieid);
   const [moviekey] = useMovie(movieid);
-  const handleKewordsClick = () => {
+  const handleDelClick = () => {
     
     const action = getMovieKeywords(keywords, moviekey);
     
@@ -34,10 +33,10 @@ const KeyWordButton = ({ movie }) => {
     >
       <Button variant="contained" color="primary"
         data-cy="keywordsButton"
-        onClick={handleKewordsClick}
+        onClick={handleDelClick}
         className={classes.keywordsbtn}
       >
-        keywords
+        delete
       </Button>
     </Link>
   );

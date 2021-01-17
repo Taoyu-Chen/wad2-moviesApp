@@ -1,7 +1,7 @@
 import React from "react";
 import ShowKeywords from "./showKeywords";
 import SimilarMovieButton from "./similarMoviesButton";
-
+import DeleteSimilarMovieButton from "./delSimilarMovieButton"
 
 const KeyWordButton = ({ movie }) => {
 
@@ -9,6 +9,7 @@ const KeyWordButton = ({ movie }) => {
     <>
       <ShowKeywords movie={movie} />
       <SimilarMovieButton movie={movie} />
+      <DeleteSimilarMovieButton movie={movie}  />
     </>
   );
 };

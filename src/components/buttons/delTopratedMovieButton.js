@@ -14,8 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   keywordsbtn: {
-    marginLeft: 10,
-    marginRight: 2
+    marginLeft: 2
   }
 }));
 const KeyWordButton = ({ movie }) => {
@@ -37,7 +36,7 @@ const KeyWordButton = ({ movie }) => {
         onClick={handleKewordsClick}
         className={classes.keywordsbtn}
       >
-        keywords
+        del
       </Button>
     </Link>
   );
