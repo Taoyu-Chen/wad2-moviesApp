@@ -2,14 +2,16 @@ import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/authContext"
 import { Link, useHistory } from "react-router-dom"
-
+import apilogin from '../api/movie-api';
+import { auth } from "../firebase";
 export default function Login() {
   const emailRef = useRef()
   const passwordRef = useRef()
-  const { login } = useAuth()
+  const { login, authenticate } = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
+  
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -18,6 +20,7 @@ export default function Login() {
       setError("")
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
+      await authenticate(emailRef.current.value, passwordRef.current.value)
       history.push("/movies/top_rated")
     } catch {
       setError("Failed to log in")

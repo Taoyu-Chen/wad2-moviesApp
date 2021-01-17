@@ -49,10 +49,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 const SiteHeader = () => {
   const classes = useStyles();
-  const { currentUser, logout } = useAuth()
+  const { currentUser, logout, signout} = useAuth()
   async function handleLogout() {
     await logout()
-
+    await signout()
   }
   return (
     <nav className="navbar  navbar-light fixed-top  bg-light ">
