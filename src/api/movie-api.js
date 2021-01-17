@@ -59,7 +59,7 @@ export const deleteTopratedMovie = (id) => {
     }).then(res => res.json())
 };
 
-export const deleteSimilarMovies = (id) => {
+export const deleteSimilarMovie = (id) => {
     return fetch(`/api/similar/${id}`, {
         headers: {
             'Authorization': window.localStorage.getItem('token')

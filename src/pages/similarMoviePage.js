@@ -2,7 +2,7 @@
 import React from "react";
 //import StubAPI from "../api/stubAPI";
 import PageTemplate from '../components/materialuiTemplateMovieListPage';
-import CombineButton from '../components/buttons/combineButton';
+import CombineSimilar from '../components/buttons/combineSimilar';
 import store from '../store';
 import MaterialuiSiteHeader from '../components/materialuiSiteHeader/siteHeaderui';
 const SimilarMoviesPage = (props) => {
@@ -16,7 +16,7 @@ const SimilarMoviesPage = (props) => {
         title='Similar Movies'
         movies={similarMovies}
         action={(movie) => {
-          return <CombineButton movie={movie}/> 
+          return <CombineSimilar movie={movie}/> 
         }}
       />
     </>

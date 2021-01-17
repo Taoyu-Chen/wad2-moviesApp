@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import store from '../../store';
-import { getMovieKeywords } from "../../store/actionCreators";
-import useMovieKeywords from "../../hooks/useMovieKeywords";
-import useMovie from "../../hooks/useMovie";
+import { delTopratedMovie } from "../../store/actionCreators";
+import useDelTopratedMovies from "../../hooks/delSimilarMovies";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
@@ -20,16 +19,14 @@ const useStyles = makeStyles((theme) => ({
 const KeyWordButton = ({ movie }) => {
   const classes = useStyles();
   const movieid = movie.id;
-  const [keywords] = useMovieKeywords(movieid);
-  const [moviekey] = useMovie(movieid);
+  const [movies] = useDelTopratedMovies(movieid);
   const handleKewordsClick = () => {
     
-    const action = getMovieKeywords(keywords, moviekey);
-    
+    const action = delTopratedMovie(movies);
     store.dispatch(action)
   }
   return (
-    <Link to={`/keywords/${movie.id}`}
+    <Link to={`/movies/top_rated`}
     >
       <Button variant="contained" color="primary"
         data-cy="keywordsButton"
