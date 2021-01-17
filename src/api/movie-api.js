@@ -36,7 +36,7 @@ export const getTopRatingMovies = () => {
 
 export const getSimilarMovies = (id) => {
     return fetch(
-    `/api/toprated/db/${id}`,{headers: {
+    `/api/similar/db/${id}`,{headers: {
         'Authorization': window.localStorage.getItem('token')
         }
     }).then(res => res.json());
@@ -53,17 +53,15 @@ export const getMovieKeywords = (id) => {
 export const deleteTopratedMovie = (id) => {
     return fetch(`/api/toprated/${id}`, {
         headers: {
-            'Content-Type': 'application/json',
             'Authorization': window.localStorage.getItem('token')
         },
         method: 'delete'
     }).then(res => res.json())
 };
 
-export const deleteSimilarMovie = (id) => {
+export const deleteSimilarMovies = (id) => {
     return fetch(`/api/similar/${id}`, {
         headers: {
-            'Content-Type': 'application/json',
             'Authorization': window.localStorage.getItem('token')
         },
         method: 'delete'

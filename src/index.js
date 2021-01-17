@@ -38,14 +38,14 @@ const App = () => {
                       <Route path="/reviews/:id" component={MovieReviewPage} />
                       <PriviteRoute path="/similar/:id" component={SimilarMoviePage} />
                       <PriviteRoute path="/keywords/:id" component={KeywordsPage} />
-                      <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
-                      <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
+                      <PriviteRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
+                      <PriviteRoute exact path="/movies/upcoming" component={UpcomingMoviesPage} />
                       <PriviteRoute exact path="/movies/top_rated" component={TopratedMoviesPage} />
                       <PriviteRoute exact path="/test" component={Test} />
-                      <Route path="/movies/:id" component={MoviePage} />
+                      <PriviteRoute path="/movies/:id" component={MoviePage} />
                       <Route path="/login" component={Login} />
                       <Route path="/signup" component={Signup} />
-                      <Route path="/" component={HomePage} />
+                      <PriviteRoute path="/" component={HomePage} />
                       <Redirect from="*" to="/" />
                     </Switch>
                   </AuthProvider>

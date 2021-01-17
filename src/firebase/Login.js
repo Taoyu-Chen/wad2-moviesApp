@@ -21,7 +21,7 @@ export default function Login() {
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
       await authenticate(emailRef.current.value, passwordRef.current.value)
-      history.push("/movies/top_rated")
+      history.push("/movies/")
     } catch {
       setError("Failed to log in")
     }

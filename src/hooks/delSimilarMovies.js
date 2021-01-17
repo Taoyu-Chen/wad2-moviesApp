@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { getTopRatingMovies } from '../api/movie-api';
+import { deleteSimilarMovies } from '../api/movie-api';
 
-const useTopratedMovies = () => {
+const delSimilarMovies = id => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
-    getTopRatingMovies().then(movies => {
+    deleteSimilarMovies(id).then(movies => {
       setMovies(movies);
     });
-  }, []);
+  }, [id]);
   return [movies, setMovies];
 };
 
-export default useTopratedMovies
+export default delSimilarMovies
